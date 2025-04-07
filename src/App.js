@@ -6,6 +6,36 @@ function App() {
   const [showTransition, setShowTransition] = useState(false);
   const audioRef = useRef(null);
   const transitionRef = useRef(null);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const slidesRef = useRef([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlideIndex((prevIndex) => (prevIndex + 1) % slidesRef.current.length);
+    }, 3000); // 3 seconds
+
+    return () => clearInterval(interval); // Cleanup
+  }, []);
+
+<div className="slideshow-container">
+  {[
+    { src: "aca1.png", caption: "Acanavi UI Showcase" },
+    { src: "aca3.png", caption: "Acanavi Dashboard Concept" },
+    { src: "aca2.png", caption: "Acanavi Grading System" },
+  ].map((slide, index) => (
+    <div
+      key={index}
+      className="slide"
+      style={{ display: index === slideIndex ? "block" : "none" }}
+      ref={(el) => (slidesRef.current[index] = el)}
+    >
+      <img src={slide.src} alt={slide.caption} style={{ width: "100%" }} />
+      <div className="caption">{slide.caption}</div>
+    </div>
+  ))}
+</div>
+
+
 
   const handlePlayPause = () => {
     const audio = audioRef.current;
@@ -61,6 +91,8 @@ function App() {
         loop
       />
     </div>
+
+    
   );
 }
 
