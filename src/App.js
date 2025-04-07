@@ -68,15 +68,8 @@ function App() {
                   </button>
       </section>
 
-      {/* Video transition overlay */}
-      <video
-        ref={transitionRef}
-        className={`page_video_transition ${showTransition ? 'active' : ''}`}
-        src="bgnana.mp4"
-        autoPlay
-        muted
-        loop
-      />
+     
+      
     </div>
 
     
