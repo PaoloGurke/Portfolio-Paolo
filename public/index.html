@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="root"></div>
+
     <header class="header">
       <nav class="navbar">
         <ul class="nav-links">
@@ -140,15 +140,11 @@
 
     <!-- Background Music Functionality -->
     <div class="bg-music">
-      <!-- Play/Pause Button -->
       <button id="bgMusicSwitch" class="audio-button"></button>
-      
-      <!-- Audio Element -->
-      <audio id="bgAudio" loop>
+      <audio id="bgAudio" loop autoplay muted>
         <source src="bgmperf.mp3" type="audio/mp3" />
       </audio>
     </div>
-    
 
     <script>
       // Wait until the page has fully loaded, then unmute and start the audio

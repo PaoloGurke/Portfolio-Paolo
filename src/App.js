@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Navbar from "./components/NavBar/navbar";
 
 function App() {
@@ -12,12 +12,38 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       setSlideIndex((prevIndex) => (prevIndex + 1) % slidesRef.current.length);
-    }, 3000); // 3 seconds for the slideshow
+    }, 3000); // 3 seconds
 
-    return () => clearInterval(interval); // Cleanup interval when component unmounts
+    return () => clearInterval(interval); // Cleanup
   }, []);
 
-  // Music play/pause handler
+<div className="slideshow-container">
+  {[
+    { src: "aca1.png", caption: "Acanavi's UI Showcase" },
+    { src: "aca3.png", caption: "Acanavi's Dashboard Concept" },
+    { src: "aca2.png", caption: "Acanavi's Grading System" },
+    { src: "aca4.png", caption: "Acanavi's UI Showcase" },
+    { src: "comm1.png", caption: "Acanavi's Commercial" },
+    { src: "fq1.png", caption: "FoodQuest's Prototype" },
+    { src: "fq2.png", caption: "FoodQuest's Logo" },
+    { src: "fq3.png", caption: "FoodQuest's Homepage" },
+    { src: "fq4.png", caption: "Ordering in FoodQuest" },
+    { src: "aft1.png", caption: "Editing using AFter Effects" },
+  ].map((slide, index) => (
+    <div
+      key={index}
+      className="slide"
+      style={{ display: index === slideIndex ? "block" : "none" }}
+      ref={(el) => (slidesRef.current[index] = el)}
+    >
+      <img src={slide.src} alt={slide.caption} style={{ width: "100%" }} />
+      <div className="caption">{slide.caption}</div>
+    </div>
+  ))}
+</div>
+
+
+
   const handlePlayPause = () => {
     const audio = audioRef.current;
     if (audio.paused) {
@@ -44,41 +70,15 @@ function App() {
       <Navbar />
 
       {/* Background music toggle button */}
-      <div className="bg-music">
-  <button onClick={handlePlayPause} style={{ padding: '10px', fontSize: '16px' }}>
-    {isPlaying ? 'Pause Music' : 'Play Music'}
-  </button>
-        {/* Background music */}
-        <audio ref={audioRef} id="bgAudio" loop>
-          <source src="/bgmperf.mp3" type="audio/mp3" />
-        </audio>
-      </div>
+      <button onClick={handlePlayPause} style={{ padding: '10px', fontSize: '16px' }}>
+        {isPlaying ? 'Pause Music' : 'Play Music'}
+      </button>
 
-      {/* Slideshow */}
-      <div className="slideshow-container">
-        {[ 
-          { src: "aca1.png", caption: "Acanavi's UI Showcase" },
-          { src: "aca3.png", caption: "Acanavi's Dashboard Concept" },
-          { src: "aca2.png", caption: "Acanavi's Grading System" },
-          { src: "aca4.png", caption: "Acanavi's UI Showcase" },
-          { src: "comm1.png", caption: "Acanavi's Commercial" },
-          { src: "fq1.png", caption: "FoodQuest's Prototype" },
-          { src: "fq2.png", caption: "FoodQuest's Logo" },
-          { src: "fq3.png", caption: "FoodQuest's Homepage" },
-          { src: "fq4.png", caption: "Ordering in FoodQuest" },
-          { src: "aft1.png", caption: "Editing using After Effects" },
-        ].map((slide, index) => (
-          <div
-            key={index}
-            className="slide"
-            style={{ display: index === slideIndex ? "block" : "none" }}
-            ref={(el) => (slidesRef.current[index] = el)}
-          >
-            <img src={slide.src} alt={slide.caption} style={{ width: "100%" }} />
-            <div className="caption">{slide.caption}</div>
-          </div>
-        ))}
-      </div>
+      {/* Background music */}
+      <audio ref={audioRef} id="bgAudio" loop autoPlay>
+        <source src="/bgmperf.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
 
       {/* Resume Section */}
       <section className="slide" id="resume">
@@ -93,10 +93,13 @@ function App() {
         ref={transitionRef}
         className={`page_video_transition ${showTransition ? 'active' : ''}`}
         src="bgnana.mp4"
+        autoPlay
         muted
         loop
       />
     </div>
+
+    
   );
 }
 
