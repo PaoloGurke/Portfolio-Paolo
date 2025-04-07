@@ -45,13 +45,12 @@ function App() {
 
       {/* Background music toggle button */}
       <div className="bg-music">
-        <button onClick={handlePlayPause} style={{ padding: '10px', fontSize: '16px' }}>
-          {isPlaying ? 'Pause Music' : 'Play Music'}
-        </button>
+  <button onClick={handlePlayPause} style={{ padding: '10px', fontSize: '16px' }}>
+    {isPlaying ? 'Pause Music' : 'Play Music'}
+  </button>
         {/* Background music */}
         <audio ref={audioRef} id="bgAudio" loop>
           <source src="/bgmperf.mp3" type="audio/mp3" />
-          Your browser does not support the audio element.
         </audio>
       </div>
 
@@ -94,7 +93,6 @@ function App() {
         ref={transitionRef}
         className={`page_video_transition ${showTransition ? 'active' : ''}`}
         src="bgnana.mp4"
-        autoPlay
         muted
         loop
       />
