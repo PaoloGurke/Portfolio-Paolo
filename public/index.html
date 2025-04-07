@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./dinoror.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Paolo Portfolio" />
+    <title>Paolo Gurke | UI/UX Designer</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+
+    <header class="header">
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#resume">RESUME</a></li>
+          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="#contacts">CONTACTS</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <section id="home" class="hero-section"><div class="hero-content">
+      <div class="profile-info">
+        <div class="profile-wrapper">
+          <img src="mepp.png" alt="Profile Picture" class="profile-pic">
+        </div>
+        <h1>Paolo Gurke</h1>
+        <p class="description">UI/UX Designer | Passionate about creating intuitive and engaging designs.</p>
+      </div>
+
+      <!-- Contact Section (only part of HOME) -->
+      <div id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>If you're interested in working together, feel free to reach out!</p>
+        <a href="mailto:narutodragonblaze.fp@gmail.com" class="contact-button">Email Me</a>
+      </div>
+   
+
+    <!-- Page Content -->
+    <div class="page-content" id="home">
+      <!-- First Video -->
+      <video poster="backgvideo.jpg" src="./bgvid.mp4" loop autoplay muted class="page_video"></video>
+    </div>
+  </section>
+
+
+
+
+  <section id="resume" class="RESUME">
+    <h2><span class="highlight"></span></h2>
+  
+    <div class="page-content2">
+      <video poster="backgvideo2.jpg" src="./bgbohe.mp4" loop autoplay muted class="page_video2"></video>
+      
+      <div class="resume-overlay">
+        
+        <div style="text-align: left;">
+          <h1>Hello,</h1>
+          <p>I am Paolo, a.k.a. Art.</p>
+          <p>I'm the UI/UX Designer of <strong>Acanavi</strong>,</p><p>the Commercial Editor, and the designer </p><p>behind <strong>FoodQuest</strong>'s UI/UX.</p>
+          <p>As Film Director for the FoodQuest</p><p> commercial, I led the creative process,</p><p> ensuring a visually impactful message.</p>
+        </div>
+        
+        
+        
+        
+        
+
+        </h1>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+  <section id="projects" class="PROJECTS"><h3>PROJECTS <span class="highlight">
+    <!-- Third Video (Page Content 3) -->
+    <div class="page-content3">
+      <video poster="backgvideo3.jpg" src="./bgnana.mp4" loop autoplay muted class="page_video3"></video>
+    </div>
+  </section>
+
+
+
+    <section id="contacts" class="CONTACTS"><h4>CONTACTS <span class="highlight">
+    <!-- Fourth Video (Page Content 4) -->
+    <div class="page-content4">
+      <video poster="backgvideo4.jpg" src="./bgzao.mp4" loop autoplay muted class="page_video4"></video>
+    </div>
+  </section>
+
+
+
+
+
+
+    <!-- Background Music Functionality -->
+    <div class="bg-music">
+      <button id="bgMusicSwitch" class="audio-button"></button>
+      <audio id="bgAudio" loop autoplay muted>
+        <source src="bgmperf.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+
+    <script>
+      // Wait until the page has fully loaded, then unmute and start the audio
+      window.addEventListener('load', () => {
+        const bgAudio = document.getElementById("bgAudio");
+
+        // Play audio on load
+        bgAudio.play();
+
+        // Unmute the audio after a small delay for user interaction
+        setTimeout(() => {
+          bgAudio.muted = false; // Unmute after page load
+        }, 1000);
+      });
+
+      // Button functionality for muting/unmuting the audio
+      const bgMusicSwitch = document.getElementById("bgMusicSwitch");
+      bgMusicSwitch.addEventListener("click", () => {
+        const bgAudio = document.getElementById("bgAudio");
+        if (bgAudio.muted) {
+          bgAudio.muted = false; // Unmute when button is clicked
+        } else {
+          bgAudio.muted = true; // Mute when button is clicked
+        }
+      });
+
+      // Smooth scroll to sections
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          document.getElementById(targetId).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start' // Ensures the section starts at the top of the viewport
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>
