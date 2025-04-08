@@ -203,6 +203,10 @@
     justify-content: center;
   }
 
+  .nav-links a.active {
+    color: #21acda; /* Light blue */
+  }
+  
 
   /* Include the custom font */
 /* Import the Boppa font */
@@ -334,8 +338,8 @@
   
   
   .skill-icon {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
   }
   
