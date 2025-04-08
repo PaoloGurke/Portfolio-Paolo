@@ -14,6 +14,13 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: 'RamseyBold';
+    src: url('./RamseyTest-Bold.otf') format('truetype'); /* Ensure the path is correct */
+    font-weight: normal;
+    font-style: normal;
+  }
+
   /* Body styles */
   body {
     background: rgb(30, 30, 30);
@@ -49,6 +56,45 @@
     object-fit: cover;
     z-index: 0; /* Keeps the second video below the first one */
   }
+
+.intro {
+  color: rgba(243, 243, 243, 0.904);
+}
+  .name {
+    font-family: 'RamseyBold', sans-serif;
+  }
+
+
+  .text-box {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.336);
+    padding: 20px;
+    border-radius: 12px;
+    color: rgb(231, 231, 231);
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(10px);
+    white-space: normal; /* allow wrapping */
+    padding-top: 2px;
+  padding-bottom: 15px;
+  }
+  
+  .text-box h1 {
+    font-size: 2rem;
+    white-space: nowrap; /* ❗️this forces the full line to stay together */
+    margin-bottom: 10px;
+  }
+  
+  .name {
+    font-weight: 'bold';
+    color: #fff;
+  }
+  
+  
+
+
 
   .resume-overlay {
     position: absolute;
@@ -115,31 +161,7 @@
   }
   
   /* Contact Section */
-  .contact {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 1; /* Keeps the contact info on top */
-  }
-  
-  .contact h2 {
-    font-size: 2rem;
-  }
-  
-  .contact p {
-    font-size: 1rem;
-    margin: 10px 0;
-  }
-  
-  .contact-button {
-    background-color: #7649BE;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-  }
+
   
   /* Navbar styles */
   .navbar {
@@ -233,9 +255,9 @@
   
   .slideshow-container {
     position: relative;
-    max-width: 700px;
+    max-width: 1000px;
     margin-top: 350px;  /* Space at the top */
-    margin-left: 0px;  /* Remove auto to prevent centering */
+    margin-left: 100px;  /* Remove auto to prevent centering */
     margin-right: 1100px; /* Remove auto on the right */
     margin-bottom: 30px; /* Space at the bottom */
     padding-left: 10px; /* Padding on the left */
@@ -260,4 +282,65 @@
     color: #ebebeb;
   }
 
+  #skills {
+    position: relative;
+    padding: 0;
+  }
+  
+
+  .page_video4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the whole container */
+    z-index: 0; /* Keep the video in the background */
+  }
+  
+  .skills-container {
+    position: relative;
+    z-index: 1; /* Make sure the skills are above the video */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden; /* Hide the scrollbar */
+    height: 250px; /* Adjust height for only 2 rows visible (2 rows * height of each skill + spacing) */
+    max-width: 30%; /* Maximum width of the container */
+    margin-left: 0%;
+    margin-top: 27%;
+    background-color: rgba(247, 247, 247, 0.123); /* Light background behind skills */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: grab; /* Make the container look draggable */
+  }
+  
+  .skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 18%; /* 5 items per row */
+    margin-bottom: 20px; /* Space between rows */
+    transition: transform 0.3s ease;
+  }
+  
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .skill-title {
+    text-align: center;
+    font-size: 16px;
+    color: #f0f0f0ea;
+    font-family: 'Boppa', sans-serif;
+  }
+  
+  .skills-container::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
+  }
+  
   

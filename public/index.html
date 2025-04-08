@@ -17,7 +17,7 @@
           <li><a href="#home">HOME</a></li>
           <li><a href="#about me">ABOUT ME</a></li>
           <li><a href="#projects">PROJECTS</a></li>
-          <li><a href="#contacts">CONTACTS</a></li>
+          <li><a href="#skills">SKILLS</a></li>
         </ul>
       </nav>
     </header>
@@ -27,16 +27,21 @@
         <div class="profile-wrapper">
           <img src="mepp.png" alt="Profile Picture" class="profile-pic">
         </div>
-        <h1>Paolo Gurke</h1>
-        <p class="description">UI/UX Designer | Passionate about creating intuitive and engaging designs.</p>
-      </div>
 
-      <!-- Contact Section (only part of HOME) -->
-      <div id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>If you're interested in working together, feel free to reach out!</p>
-        <a href="mailto:narutodragonblaze.fp@gmail.com" class="contact-button">Email Me</a>
+
+
+      
+        <h1 class="intro"> こんにちは Welcome!</h1>
+        <div class="text-box">
+<p class="description"><b>I'm Paolo UI/UX Designer | Passionate about creating.</b></p>
+<p class="description"><b>Intuitive and engaging designs.</b></p>
       </div>
+    </div>
+
+
+
+      <!-- Skills Section (only part of HOME) -->
+  
    
 
     <!-- Page Content -->
@@ -60,8 +65,8 @@
         
         <div style="text-align: left;">
           <h1>Hello,</h1>
-          <p>I am Paolo, a.k.a. Art.</p>
-          <p>I'm the UI/UX Designer of <strong>Acanavi</strong>,</p><p>the Commercial Editor, and the designer </p><p>behind <strong>FoodQuest</strong>'s UI/UX.</p>
+          <p>I am Paolo, a.k.a. Art!</p>
+          <p>I'm the UI/UX Designer of Acanavi,</p><p>the Commercial Editor, and the designer </p><p>behind FoodQuests UI/UX.</p>
           <p>As Film Director for the FoodQuest</p><p> commercial, I led the creative process,</p><p> ensuring a visually impactful message.</p>
         </div>
         
@@ -75,7 +80,7 @@
 
 
   <section id="projects" class="PROJECTS">
-    <h3>PROJECTS <span class="highlight"></span></h3>
+   
   
     <div class="page-content3">
       <video poster="backgvideo3.jpg" src="bgnana.mp4" loop autoplay muted class="page_video3"></video>
@@ -127,12 +132,76 @@
 
 
 
-    <section id="contacts" class="CONTACTS"><h4>CONTACTS <span class="highlight">
-    <!-- Fourth Video (Page Content 4) -->
+
+  <section id="skills" class="SKILLS">
+    <div class="skills-title">
+      <h4>Skills :</h4>
+    </div>
+
+
+
     <div class="page-content4">
+
       <video poster="backgvideo4.jpg" src="./bgzao.mp4" loop autoplay muted class="page_video4"></video>
+    <div class="skills-container">
+    
+      <div class="skills-container">
+        <div class="skill">
+          <img src="figmalogo.png" alt="Figma" class="skill-icon">
+          <p class="skill-title">Figma</p>
+        </div>
+        <div class="skill">
+          <img src="notionlogo.png" alt="Notion" class="skill-icon">
+          <p class="skill-title">Notion</p>
+        </div>
+        <div class="skill">
+          <img src="aftereffectlogo.png" alt="After Effects" class="skill-icon">
+          <p class="skill-title">After Effects</p>
+        </div>
+        <div class="skill">
+          <img src="adobepremierelogo.jpg" alt="Premiere Pro" class="skill-icon">
+          <p class="skill-title">Premiere Pro</p>
+        </div>
+        <div class="skill">
+          <img src="obslogo.png" alt="OBS Studio" class="skill-icon">
+          <p class="skill-title">OBS Studio</p>
+        </div>
+        <div class="skill">
+          <img src="nodelogo.png" alt="NodeJS" class="skill-icon">
+          <p class="skill-title">NodeJS</p>
+        </div>
+        <div class="skill">
+          <img src="reactlogo.png" alt="React" class="skill-icon">
+          <p class="skill-title">React</p>
+        </div>
+        <div class="skill">
+          <img src="expresslogo.png" alt="ExpressJS" class="skill-icon">
+          <p class="skill-title">ExpressJS</p>
+        </div>
+        <div class="skill">
+          <img src="githublogo.png" alt="GitHub" class="skill-icon">
+          <p class="skill-title">GitHub</p>
+        </div>
+        <div class="skill">
+          <img src="vscodelogo.png" alt="VSCode" class="skill-icon">
+          <p class="skill-title">VS Code</p>
+        </div>
+        <div class="skill">
+          <img src="canvalogo.png" alt="Canva" class="skill-icon">
+          <p class="skill-title">Canva</p>
+        </div>
+        <div class="skill">
+          <img src="picsartlogo.png" alt="Picsart" class="skill-icon">
+          <p class="skill-title">Picsart</p>
+        </div>
+        <div class="skill">
+          <img src="capcutlogo.jpg" alt="CapCut" class="skill-icon">
+          <p class="skill-title">CapCut</p>
+        </div>
+      </div>
     </div>
   </section>
+  
 
 
 
@@ -152,8 +221,34 @@
       window.addEventListener('load', () => {
         const bgAudio = document.getElementById("bgAudio");
 
-        // Play audio on load
-        bgAudio.play();
+        const skillsContainer = document.querySelector('.skills-container');
+  let isDragging = false;
+  let startY, scrollTop;
+
+  skillsContainer.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startY = e.pageY - skillsContainer.offsetTop;
+    scrollTop = skillsContainer.scrollTop;
+    skillsContainer.style.cursor = 'grabbing'; // Change cursor on drag
+  });
+
+  skillsContainer.addEventListener('mouseleave', () => {
+    isDragging = false;
+    skillsContainer.style.cursor = 'grab'; // Reset cursor when mouse leaves
+  });
+
+  skillsContainer.addEventListener('mouseup', () => {
+    isDragging = false;
+    skillsContainer.style.cursor = 'grab'; // Reset cursor after mouse up
+  });
+
+  skillsContainer.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const y = e.pageY - skillsContainer.offsetTop;
+    const walkY = (y - startY) * 2; // Multiply by 2 for faster scroll
+    skillsContainer.scrollTop = scrollTop - walkY;
+  });
 
         // Unmute the audio after a small delay for user interaction
         setTimeout(() => {
